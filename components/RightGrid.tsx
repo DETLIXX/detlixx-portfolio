@@ -22,12 +22,7 @@ export default function RightGrid({}: Props) {
           icon={<FaGithub className="text-white" size={30} />}
         />
       </div>
-      <GridButtonMail
-        title="Github"
-        desc="Check my other work"
-        href="https://www.linkedin.com/in/matus-balicky/"
-        icon={<FaGithub className="text-white" size={30} />}
-      />
+      <GridButtonMail />
     </div>
   )
 }
