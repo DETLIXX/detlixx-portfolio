@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React, {useState} from 'react'
 import {Slider} from '@heroui/slider'
-import { useAptabase } from '@aptabase/react'
+import {useAptabase} from '@aptabase/react'
 
 type Props = {}
 
@@ -36,9 +36,11 @@ export default function PDFCVCard({}: Props) {
         minValue={0}
         step={0.01}
         value={value}
-        onChange={setValue}
-        onDragEnd={(finalValue: number) => {
-          const percent = Math.round(finalValue * 100)
+        onChange={(val) => {
+          if (typeof val === 'number') setValue(val)
+        }}
+        onMouseUp={() => {
+          const percent = Math.round(value * 100)
           const nearest = Math.floor(percent / 25) * 25
           trackEvent('slider_change', {sliderName: 'cvSlider', value: nearest})
         }}
