@@ -21,7 +21,7 @@ export default function RightSection({}: Props) {
         </div>
       ))}
       <div className="w-full flex justify-center">
-        <h1 className="font-medium text-xs lg:text-md text-white/20">
+        <h1 className="font-medium text-center text-xs lg:text-md text-white/20">
           I CANT SHOW YOU ALL MY PROJECT'S BECUSE SOME ARE UNDER NDA
         </h1>
       </div>

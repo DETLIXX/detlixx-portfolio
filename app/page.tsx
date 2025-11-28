@@ -1,10 +1,16 @@
 'use client'
 import LeftSection from '@/components/sections/home/LeftSection'
 import RightSection from '@/components/sections/home/RightSection'
-import {useState} from 'react'
+import {useAptabase} from '@aptabase/react'
+import {useEffect, useState} from 'react'
 
 export default function Index() {
   const [contextOpen, setContextOpen] = useState<boolean>()
+  const {trackEvent} = useAptabase()
+
+  useEffect(() => {
+    trackEvent('page_view', {page: 'website_opened'})
+  }, [])
 
   const handleContext = () => {
     setContextOpen(true)

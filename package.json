@@ -9,6 +9,7 @@
     "lint": "eslint --fix"
   },
   "dependencies": {
+    "@aptabase/react": "^0.4.0",
     "@heroui/accordion": "2.2.24",
     "@heroui/alert": "2.2.27",
     "@heroui/autocomplete": "2.3.29",
@@ -38,6 +39,7 @@
     "@heroui/scroll-shadow": "2.3.18",
     "@heroui/select": "2.4.28",
     "@heroui/skeleton": "2.2.17",
+    "@heroui/slider": "^2.4.24",
     "@heroui/snippet": "2.2.28",
     "@heroui/spacer": "2.2.21",
     "@heroui/spinner": "2.2.24",

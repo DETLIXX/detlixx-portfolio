@@ -1,6 +1,7 @@
 import Image, {StaticImageData} from 'next/image'
 import React from 'react'
 import {FiExternalLink} from 'react-icons/fi'
+import {useAptabase} from '@aptabase/react'
 
 export type TProject = {
   project_name: string
@@ -21,11 +22,18 @@ export default function WorkCard({
   featured_text = 'FEATURED PROJECT',
   external_link,
 }: TProject) {
+  const {trackEvent} = useAptabase()
+
+  const handleClick = () => {
+    trackEvent('project_click', {project_name, external_link})
+  }
+
   return (
     <a
       href={external_link}
       target="_blank"
       referrerPolicy="origin"
+      onClick={handleClick}
       // FIX: Removed 'h-full'. The card must expand with the image content.
       // Use 'h-auto' (default) or 'h-fit' to ensure content dictates height.
       className="block border border-white/10 max-w-[1000px] hover:border-white/30 transition-all duration-500 group relative rounded-2xl cursor-pointer overflow-hidden "

@@ -1,5 +1,6 @@
 import React from 'react'
 import {FiExternalLink} from 'react-icons/fi'
+import {useAptabase} from '@aptabase/react'
 
 type Props = {
   href: string
@@ -9,11 +10,18 @@ type Props = {
 }
 
 export default function GridButton({href, icon, title, desc}: Props) {
+  const {trackEvent} = useAptabase()
+
+  const handleClick = () => {
+    trackEvent('grid_button_click', {title, href})
+  }
+
   return (
     <a
       href={href}
       target="_blank"
       referrerPolicy="origin"
+      onClick={handleClick}
       className="block border border-white/10 hover:border-white/30 transition-all duration-500 group relative rounded-2xl cursor-pointer overflow-hidden"
     >
       <div className="flex flex-col p-5 gap-5">

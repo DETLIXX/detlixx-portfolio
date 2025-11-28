@@ -9,15 +9,24 @@ import {TbMoodCrazyHappy} from 'react-icons/tb'
 import {MdOutlineWork} from 'react-icons/md'
 import UnderProfile from '@/components/NotWork/UnderProfileNonWork'
 import {Tooltip} from '@heroui/tooltip'
-import UnderProfileWork from '@/components/NotWork/UnderProfileWork'
+import ProfileSkillGrid from '@/components/sections/ProfileSkillGrid'
+import Link from 'next/link'
+import PDFCVCard from '@/components/PDFCVCard'
+import {useAptabase} from '@aptabase/react'
 
 export default function LeftSection() {
   const {isWork, config, changeWorkType} = useWork()
   const [isSelected, setIsSelected] = useState(isWork)
   const [animating, setAnimating] = useState(false)
   const [swapContent, setSwapContent] = useState(false)
+  const {trackEvent} = useAptabase()
 
   const onChange = () => {
+    trackEvent('switch_click', {
+      from: isSelected ? 'work' : 'nonwork',
+      to: !isSelected ? 'work' : 'nonwork',
+    })
+
     // začneme slide-out doľava
     setAnimating(true)
     setTimeout(() => {
@@ -39,7 +48,7 @@ export default function LeftSection() {
       {/* Top */}
       <div className="relative h-full w-full">
         <div
-          className={`transition-transform duration-300 flex flex-col gap-5 ${
+          className={`transition-transform duration-300 flex flex-col gap-1 ${
             animating && !swapContent
               ? '-translate-x-full opacity-0' // slide-out doľava
               : swapContent
@@ -48,6 +57,9 @@ export default function LeftSection() {
           }`}
         >
           <Profile key={isSelected ? 'work' : 'nonwork'} />
+          {isWork && <ProfileSkillGrid />}
+          {isWork && <PDFCVCard />}{' '}
+          {/* slider a klik sa trackuje vo vnútri komponenty */}
           {!isWork && <UnderProfile />}
         </div>
       </div>
@@ -57,7 +69,7 @@ export default function LeftSection() {
         <Tooltip
           content={
             isWork
-              ? 'THIS IS NOT FOR COMPANIES IF YOU SWITCH, ITS ON YOU, YOU BEEN WARNED'
+              ? 'THIS IS NOT FOR CORPORATES, IF YOU SWITCH, ITS ON YOU, YOU BEEN WARNED'
               : 'SWITCH BACK TO MY PRETTY SIDE <3'
           }
           color={isWork ? 'danger' : 'success'}

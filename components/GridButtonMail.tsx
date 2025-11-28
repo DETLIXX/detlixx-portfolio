@@ -1,11 +1,22 @@
 import React from 'react'
 import {MdEmail} from 'react-icons/md'
+import {useAptabase} from '@aptabase/react'
 
 type Props = {}
 
 export default function GridButtonMail({}: Props) {
+  const {trackEvent} = useAptabase()
+
+  const handleClick = () => {
+    trackEvent('email_click', {email: 'contact@detlixx.com'})
+  }
+
   return (
-    <div className="block border h-[100px] border-white/10 hover:border-white/30 transition-all duration-500 group relative rounded-2xl cursor-pointer overflow-hidden px-3">
+    <a
+      href="mailto:contact@detlixx.com"
+      onClick={handleClick}
+      className="block border h-[100px] border-white/10 hover:border-white/30 transition-all duration-500 group relative rounded-2xl cursor-pointer overflow-hidden px-3"
+    >
       <div className="pointer-events-none inset-0 absolute bg-gradient-to-b from-white/20 via-white/5 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
       <div className="w-full h-full flex flex-row items-center">
         <div className="w-full h-full flex flex-row items-center gap-4">
@@ -19,12 +30,7 @@ export default function GridButtonMail({}: Props) {
             </p>
           </div>
         </div>
-        <div className="flex justify-center items-center bg-white w-[150px] py-3 rounded-xl">
-          <a href="mailto:contact@detlixx.com" className="text-black font-bold">
-            Contact me
-          </a>
-        </div>
       </div>
-    </div>
+    </a>
   )
 }
