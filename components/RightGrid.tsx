@@ -18,7 +18,7 @@ export default function RightGrid({}: Props) {
         <GridButton
           title="Github"
           desc="Check my other work"
-          href="https://www.linkedin.com/in/matus-balicky/"
+          href="https://github.com/DETLIXX"
           icon={<FaGithub className="text-white" size={30} />}
         />
       </div>
