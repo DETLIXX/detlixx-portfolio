@@ -27,12 +27,6 @@ export default function Profile({}: Props) {
         <h1 className="text-4xl font-black">{config.name}</h1>
         <p className="text-xl font-medium text-white/50">{config.under_name}</p>
 
-        {!isWork && (
-          <div className="flex flex-row gap-2 py-1 px-4 rounded-full ring-1 items-center self-start ring-danger bg-white/10 mt-3">
-            <IoIosWarning size={20} />
-            <h1>I love to being controversial</h1>
-          </div>
-        )}
 
         <div className="mt-5 md:w-[80%] gap-3 max-w-[600px]">
           <h1 className="font-bold text-xl">Bio</h1>

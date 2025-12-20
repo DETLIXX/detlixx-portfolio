@@ -14,9 +14,8 @@ export const workTypeConfig = {
   },
   not_work: {
     name: 'DETLIXX',
-    under_name: 'Retire by 30s ? halfway done',
-    description: `Doing all kinds of stuff, from coding to any kind of business w my boys. At the end of the day, money = money, doesn’t matter where it comes from.
-Cars, bikes, gym and guns that’s my pleasure in free time.`,
+    under_name: 'Trying to retire in my 30s',
+    description: `Doing all kind of stuff, from coding, to being part of organiation that is doing car events.`,
     links: {
       instagram: 'https://www.instagram.com/detlixx2/',
       github: 'https://github.com/DETLIXX',

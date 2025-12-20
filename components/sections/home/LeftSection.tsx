@@ -56,17 +56,17 @@ export default function LeftSection() {
                 : 'translate-x-0 opacity-100' // default
           }`}
         >
-          <Profile key={isSelected ? 'work' : 'nonwork'} />
+          <Profile />
           {isWork && <ProfileSkillGrid />}
           {isWork && <PDFCVCard />}{' '}
           {/* slider a klik sa trackuje vo vnútri komponenty */}
-          {!isWork && <UnderProfile />}
+          {/* {!isWork && <UnderProfile />} */}
         </div>
       </div>
 
       {/* Bottom */}
       <div className="h-[50px] w-full flex items-center gap-5 px-2">
-        <Tooltip
+        {/* <Tooltip
           content={
             isWork
               ? 'THIS IS NOT FOR CORPORATES, IF YOU SWITCH, ITS ON YOU, YOU BEEN WARNED'
@@ -84,7 +84,7 @@ export default function LeftSection() {
             isSelected={isSelected}
             onValueChange={onChange}
           />
-        </Tooltip>
+        </Tooltip> */}
         <SocialButtons href={config.links.linkedin} icon="linkedin" />
         <SocialButtons href={config.links.github} icon="github" />
         <SocialButtons href={config.links.instagram} icon="instagram" />
